@@ -737,7 +737,7 @@ func (d *driver) copy(ctx context.Context, sourcePath string, destPath string) e
 			ServerSideEncryption: d.getEncryptionMode(),
 			SSEKMSKeyId:          d.getSSEKMSKeyID(),
 			StorageClass:         d.getStorageClass(),
-			CopySource:           aws.String(d.Bucket + "/" + d.s3Path(sourcePath)),
+			CopySource:           aws.String(d.s3Path(sourcePath))
 		})
 		if err != nil {
 			return parseError(sourcePath, err)
